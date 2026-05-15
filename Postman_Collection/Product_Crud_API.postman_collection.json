@@ -1,0 +1,294 @@
+{
+  "info": {
+    "_postman_id": "5d2c6db8-5b80-4924-ae89-f523c5f51da6",
+    "name": "Product Crud API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51742729",
+    "_collection_link": "https://go.postman.co/collection/51742729-5d2c6db8-5b80-4924-ae89-f523c5f51da6?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create Product",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Oversized Black Hoodie\",\r\n    \"description\": \"Premium oversized black hoodie made with soft cotton fabric for everyday comfort and streetwear fashion styling.\",\r\n    \"price\": 1499,\r\n    \"category\": \"unisex\",\r\n    \"stockQuantity\": 25\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://productcrudapi.onrender.com/api/product/create",
+          "protocol": "https",
+          "host": [
+            "productcrudapi",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "product",
+            "create"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Show All Products",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Oversized Black Hoodie\",\r\n    \"description\": \"Premium oversized black hoodie made with soft cotton fabric for everyday comfort and streetwear fashion styling.\",\r\n    \"price\": 1499,\r\n    \"category\": \"unisex\",\r\n    \"stockQuantity\": 25\r\n}"
+        },
+        "url": {
+          "raw": "https://productcrudapi.onrender.com/api/product/all-products",
+          "protocol": "https",
+          "host": [
+            "productcrudapi",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "product",
+            "all-products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Show Single Product Using Slug",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Oversized Black Hoodie\",\r\n    \"description\": \"Premium oversized black hoodie made with soft cotton fabric for everyday comfort and streetwear fashion styling.\",\r\n    \"price\": 1499,\r\n    \"category\": \"unisex\",\r\n    \"stockQuantity\": 25\r\n}"
+        },
+        "url": {
+          "raw": "https://productcrudapi.onrender.com/api/product/single-product/womens-running-shoes",
+          "protocol": "https",
+          "host": [
+            "productcrudapi",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "product",
+            "single-product",
+            "womens-running-shoes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Product Stock",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"stockQuantity\" : 0\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://productcrudapi.onrender.com/api/product/update-stock/womens-running-shoes",
+          "protocol": "https",
+          "host": [
+            "productcrudapi",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "product",
+            "update-stock",
+            "womens-running-shoes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Out Of Stock Products List",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"stockQuantity\" : 0\r\n}"
+        },
+        "url": {
+          "raw": "https://productcrudapi.onrender.com/api/product/out-of-stock",
+          "protocol": "https",
+          "host": [
+            "productcrudapi",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "product",
+            "out-of-stock"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Product Details (Only If in-Stock)",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"price\": 2099\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://productcrudapi.onrender.com/api/product/update/oversized-black-hoodie",
+          "protocol": "https",
+          "host": [
+            "productcrudapi",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "product",
+            "update",
+            "oversized-black-hoodie"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Soft Delete Product",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://productcrudapi.onrender.com/api/product/soft-delete/oversized-black-hoodie",
+          "protocol": "https",
+          "host": [
+            "productcrudapi",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "product",
+            "soft-delete",
+            "oversized-black-hoodie"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Hard Delete Product",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://productcrudapi.onrender.com/api/product/hard-delete/oversized-black-hoodie",
+          "protocol": "https",
+          "host": [
+            "productcrudapi",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "product",
+            "hard-delete",
+            "oversized-black-hoodie"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Show Deleted Products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://productcrudapi.onrender.com/api/product/deleted-products",
+          "protocol": "https",
+          "host": [
+            "productcrudapi",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "product",
+            "deleted-products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Recover Deleted Products",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://productcrudapi.onrender.com/api/product/recover-product/womens-running-shoes",
+          "protocol": "https",
+          "host": [
+            "productcrudapi",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "product",
+            "recover-product",
+            "womens-running-shoes"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
