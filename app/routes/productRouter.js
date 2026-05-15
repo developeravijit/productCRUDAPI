@@ -17,6 +17,13 @@ productRouter.put("/update/:slug", productController.updateProduct);
 
 productRouter.delete("/soft-delete/:slug", productController.softDelete);
 
+productRouter.get("/deleted-products", productController.showDeletedProduct);
+
+productRouter.patch(
+  "recover-product/:slug",
+  productController.recoverDeletedProduct,
+);
+
 productRouter.delete("/hard-delete/:slug", productController.hardDelete);
 
 module.exports = productRouter;

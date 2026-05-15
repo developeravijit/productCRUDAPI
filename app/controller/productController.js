@@ -283,6 +283,55 @@ class productController {
     }
   }
 
+  async showDeletedProduct(req, res) {
+    try {
+      const data = await Product.find({ isDeleted: true });
+
+      return res.status(httpCodes.ok).json({
+        success: true,
+        message: data.length
+          ? "Deleted all products"
+          : "No deleted products found",
+        data: data,
+      });
+    } catch (error) {
+      return res.status(httpCodes.server_error).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  }
+
+  async recoverDeletedProduct(req, res) {
+    try {
+      const { slug } = req.params;
+
+      const recoverProduct = await Product.findOneAndUpdate(
+        { slug, isDeleted: true },
+        { isDeleted: false },
+        { new: true },
+      );
+
+      if (!recoverProduct) {
+        return res.status(httpCodes.not_found).json({
+          success: false,
+          message: "Product not found or already recovered",
+        });
+      }
+
+      return res.status(httpCodes.ok).json({
+        success: true,
+        message: "Product recovered  successfully",
+        data: recoverProduct,
+      });
+    } catch (error) {
+      return res.status(httpCodes.server_error).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  }
+
   async hardDelete(req, res) {
     try {
       const { slug } = req.params;
