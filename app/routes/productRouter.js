@@ -20,7 +20,7 @@ productRouter.delete("/soft-delete/:slug", productController.softDelete);
 productRouter.get("/deleted-products", productController.showDeletedProduct);
 
 productRouter.patch(
-  "recover-product/:slug",
+  "/recover-product/:slug",
   productController.recoverDeletedProduct,
 );
 
