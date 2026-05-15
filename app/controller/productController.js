@@ -73,24 +73,18 @@ class productController {
     try {
       const data = await Product.find({
         isDeleted: false,
+        inStock: true,
       })
         .sort({ createdAt: -1 })
         .lean();
 
-      const products = data.map((item) => ({
-        ...item,
-        stockMessage: item.inStock
-          ? "Product available"
-          : "Product is out of stock",
-      }));
-
       return res.status(httpCodes.ok).json({
         success: true,
-        message: products.length
+        message: data.length
           ? "Products fetched successfully"
-          : "No products available",
-        Total_Products: products.length,
-        data: products,
+          : "All Products are out of stock or deleted",
+        Total_Products: data.length,
+        data: data,
       });
     } catch (error) {
       return res.status(httpCodes.server_error).json({
